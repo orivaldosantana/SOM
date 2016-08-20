@@ -7,6 +7,7 @@
 
 #include <cstdlib>
 #include <iostream>
+#include "Test.h"
 
 using namespace std;
 
@@ -16,8 +17,9 @@ using namespace std;
 int main(int argc, char** argv) {
     cout << " Testando rede SOM!" << endl;
     
+    Test test; 
     
-    
+    test.colorDataSet(); 
     
     return 0;
 }
