@@ -4,10 +4,21 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Arquivos de Cabeçalho"
                    projectFiles="true">
+      <itemPath>DataSet.h</itemPath>
+      <itemPath>Node.h</itemPath>
+      <itemPath>SOM.h</itemPath>
+      <itemPath>Sample.h</itemPath>
+      <itemPath>Test.h</itemPath>
+      <itemPath>utils.h</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Arquivos de Código-Fonte"
                    projectFiles="true">
+      <itemPath>DataSet.cpp</itemPath>
+      <itemPath>Node.cpp</itemPath>
+      <itemPath>SOM.cpp</itemPath>
+      <itemPath>Sample.cpp</itemPath>
+      <itemPath>Test.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -36,7 +47,29 @@
       </toolsSet>
       <compileType>
       </compileType>
+      <item path="DataSet.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DataSet.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Node.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Node.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SOM.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SOM.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sample.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Sample.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Test.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Test.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="utils.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -59,7 +92,29 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="DataSet.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DataSet.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Node.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Node.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SOM.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SOM.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sample.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Sample.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Test.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Test.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="utils.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>
