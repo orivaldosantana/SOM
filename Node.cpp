@@ -48,6 +48,22 @@ void Node::print() {
     std::cout << std::endl;
 }
 
+std::string Node::toCSV() {
+    
+    std::string s = "";
+    if (information.size() > 0 ) {
+        
+        std::stringstream result;
+        result << information.at(0); 
+        for (int i = 1; i < information.size(); i++) {
+            result << ", " << information.at(i) ;
+        }
+        s = result.str(); 
+
+    }
+    return s;
+}
+
 void Node::updateFeatures(double d, Sample* s) {
     std::vector<double>::iterator itS = s->information.begin();
     for (std::vector<double>::iterator it = information.begin(); (itS != s->information.end())

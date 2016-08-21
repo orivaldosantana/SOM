@@ -10,11 +10,13 @@
  
 #include "Node.h"
 #include "DataSet.h"
+#include <string> 
 
+#define SOM_MAX_SIZE 100
  
 class SOM {
 public:
-    SOM();
+    SOM(int _sn=12);
 
     ~SOM();
  
@@ -31,17 +33,17 @@ public:
     void getNodeFeatures(int i, int j, std::vector<double>  &info); 
   
  
-    void print();
+    void printNodes();
     void setDataSet(DataSet* dataSet);
     void setSizeNetwork(int sizeNetwork);
     int getSizeNetwork() const;
-    void initializeNodes(int sizeNodes = 2, bool positivesValues = false ); 
+    void initializeNodes(int sizeNodes = 2, bool positivesValues = false, double intensity = 20, double maxIntensity = 200); 
     
 private:
     
     int validatePos(int pos); 
     // armazena os nodos da rede
-    Node nodes[100][100];
+    Node nodes[SOM_MAX_SIZE][SOM_MAX_SIZE];
  
     int sizeNetwork;
     int currentIt;

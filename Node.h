@@ -37,6 +37,7 @@ public:
 
 
     void                print                       ( );
+    std::string         toCSV                       ( ); 
     void                printNeigbors               ( ); 
 
     void                setFeaturesFromSample       (Sample                 *s); 

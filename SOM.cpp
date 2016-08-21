@@ -9,9 +9,9 @@
 #include <list>
 #include <cmath>
 
-SOM::SOM() {
-    sizeNetwork = 12;
-    learningRate = 0.3;
+SOM::SOM(int _sn) {
+    sizeNetwork = _sn;
+    learningRate = 0.2;
     minLearningRate = 0.01;
     alpha = learningRate; 
     maxIteration = 15000;
@@ -109,13 +109,27 @@ int SOM::updateWeight(Sample *s, int iWin, int jWin) {
 
 }
 
-void SOM::print() {
-//    cout << currentIt << ": [ ";
-//    for (int i = 0; i < sizeNetwork - 1; i++) {
-//        nodes[i].print();
-//    }
-//    nodes[sizeNetwork - 1].print();
-//    cout << "] " << endl << endl;
+void SOM::printNodes() {
+    
+    std::stringstream ssFileName;
+    
+    ssFileName << "output/color_" << currentIt << ".txt"; 
+    
+    std::string sFileName = ssFileName.str(); 
+    
+    ofstream nodesFile;
+    nodesFile.open (sFileName.c_str());
+  
+    for (int i = 0; i < sizeNetwork; i++) {
+        for (int j = 0; j < sizeNetwork; j++) {
+            cout << " [" <<  nodes[i][j].toString() << "] ";
+            nodesFile << nodes[i][j].toString(); 
+        }
+        cout <<endl; 
+        nodesFile << endl; 
+    }
+    nodesFile.close();
+
 }
 
 void SOM::setDataSet(DataSet* dataSet) {
@@ -174,7 +188,7 @@ void SOM::executeOneIt() {
     updateWeight(currentSample,iWinner,jWinner); 
     
     if ((currentIt % 100000 == 0) && (debug))
-        print();
+        printNodes();
     currentIt++; 
     cout << "CurrentIt: " << currentIt << endl; 
 
@@ -187,14 +201,17 @@ void SOM::getNodeFeatures(int i, int j, std::vector<double>& info) {
     //nodes[i][j].print(); 
     nodes[i][j].getFeatures(info); 
 }
-
-void SOM::initializeNodes(int sizeNodes, bool positivesValues ){
+/**
+ * Inicialization of SOM nodes 
+ * @param sizeNodes amount of node features  
+ * @param positivesValues allow only positive values for the node initial features 
+ */
+void SOM::initializeNodes(int sizeNodes, bool positivesValues, double intensity, double maxIntensity ){
     //srand(3); 
     double a;
     std::vector<double>  info; 
     // inicialização dos nodos da rede
-    double intensity = 20;
-    double maxIntensity = 200; 
+    
     for (int i = 0; i < sizeNetwork; i++) {        
         for (int j = 0; j < sizeNetwork; j++) {
             info.clear(); 

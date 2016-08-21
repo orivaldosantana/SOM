@@ -10,6 +10,7 @@
 
 #include "SOM.h"
 #include "DataSet.h"
+#include <fstream>
 
 class Test {
 public:
@@ -20,7 +21,7 @@ public:
     void colorDataSet(); 
 private:
     
-    SOM som;
+    
 
 };
 
