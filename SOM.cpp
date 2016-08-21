@@ -109,7 +109,7 @@ int SOM::updateWeight(Sample *s, int iWin, int jWin) {
 
 }
 
-void SOM::printNodes() {
+void SOM::printNodes(bool showTerminal) {
     
     std::stringstream ssFileName;
     
@@ -123,11 +123,11 @@ void SOM::printNodes() {
     nodesFile << "x,y,r,g,b" << endl; 
     for (int i = 0; i < sizeNetwork; i++) {
         for (int j = 0; j < sizeNetwork; j++) {
-            cout << " [" <<  nodes[i][j].toString() << "] ";
+            if (showTerminal)  cout << " [" <<  nodes[i][j].toString() << "] ";
             nodesFile << i<<","<< j<< ",";  
             nodesFile << nodes[i][j].toCSV() << endl; 
         }
-        cout <<endl; 
+        if (showTerminal) cout <<endl; 
     }
     nodesFile.close();
 

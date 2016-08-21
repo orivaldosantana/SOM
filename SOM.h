@@ -33,7 +33,7 @@ public:
     void getNodeFeatures(int i, int j, std::vector<double>  &info); 
   
  
-    void printNodes();
+    void printNodes(bool showTerminal = false);
     void setDataSet(DataSet* dataSet);
     void setSizeNetwork(int sizeNetwork);
     int getSizeNetwork() const;
