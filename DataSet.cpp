@@ -70,6 +70,7 @@ bool DataSet::isEmpty(){
     return empty; 
 }
 
+//TODO: adicionar uma excessão na leitura de arquivo 
 void DataSet::loadDataFromFile(std::string fileName) {
     matrix.clear(); 
     std::ifstream file;

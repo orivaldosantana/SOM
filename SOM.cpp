@@ -120,13 +120,13 @@ void SOM::printNodes() {
     ofstream nodesFile;
     nodesFile.open (sFileName.c_str());
   
+    nodesFile << "r,g,b" << endl; 
     for (int i = 0; i < sizeNetwork; i++) {
         for (int j = 0; j < sizeNetwork; j++) {
             cout << " [" <<  nodes[i][j].toString() << "] ";
-            nodesFile << nodes[i][j].toString(); 
+            nodesFile << nodes[i][j].toCSV() << endl; 
         }
         cout <<endl; 
-        nodesFile << endl; 
     }
     nodesFile.close();
 

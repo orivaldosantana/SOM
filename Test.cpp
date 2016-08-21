@@ -15,7 +15,7 @@ Test::Test(const Test& orig) {
 }
 
 void Test::colorDataSet() {
-    std::string fileData = "data/cores_3d.csv";
+    std::string fileData = "data/cores_3d.txt";
     
     SOM som(3);
     DataSet *data = new DataSet(fileData);
