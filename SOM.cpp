@@ -113,17 +113,18 @@ void SOM::printNodes() {
     
     std::stringstream ssFileName;
     
-    ssFileName << "output/color_" << currentIt << ".txt"; 
+    ssFileName << "output/color_" << currentIt << ".csv"; 
     
     std::string sFileName = ssFileName.str(); 
     
     ofstream nodesFile;
     nodesFile.open (sFileName.c_str());
   
-    nodesFile << "r,g,b" << endl; 
+    nodesFile << "x,y,r,g,b" << endl; 
     for (int i = 0; i < sizeNetwork; i++) {
         for (int j = 0; j < sizeNetwork; j++) {
             cout << " [" <<  nodes[i][j].toString() << "] ";
+            nodesFile << i<<","<< j<< ",";  
             nodesFile << nodes[i][j].toCSV() << endl; 
         }
         cout <<endl; 

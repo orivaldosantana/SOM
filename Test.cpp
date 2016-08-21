@@ -17,7 +17,7 @@ Test::Test(const Test& orig) {
 void Test::colorDataSet() {
     std::string fileData = "data/cores_3d.txt";
     
-    SOM som(3);
+    SOM som(7);
     DataSet *data = new DataSet(fileData);
     data->show();
     
@@ -27,7 +27,7 @@ void Test::colorDataSet() {
     int maxCollorInitialValue = 20; 
     som.initializeNodes(3,true, maxCollorInitialValue, maxColorIntensity); 
     
-    int iterations = 2;
+    int iterations = 20;
 
     
     // Execute many iterations 
