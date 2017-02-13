@@ -206,13 +206,16 @@ void SOM::getNodeFeatures(int i, int j, std::vector<double>& info) {
  * Inicialization of SOM nodes 
  * @param sizeNodes amount of node features  
  * @param positivesValues allow only positive values for the node initial features 
+ * @param intensity max value of inicialization 
  */
-void SOM::initializeNodes(int sizeNodes, bool positivesValues, double intensity, double maxIntensity ){
+void SOM::initializeNodes(int sizeNodes, bool positivesValues, double intensity ){
     //srand(3); 
     double a;
     std::vector<double>  info; 
-    // inicialização dos nodos da rede
-    
+    double maxIntensity = 10000;
+    intensity = maxIntensity * intensity;
+
+    // inicialização dos nodos da rede    
     for (int i = 0; i < sizeNetwork; i++) {        
         for (int j = 0; j < sizeNetwork; j++) {
             info.clear(); 
@@ -223,6 +226,7 @@ void SOM::initializeNodes(int sizeNodes, bool positivesValues, double intensity,
                     a = (rand() % int(intensity))/maxIntensity - (intensity/maxIntensity)/2.0;            
                 info.push_back(a);
             }
+            //    cout << " " << a << endl; 
             nodes[i][j].setLabel(Utils::int2string(i)+"-"+Utils::int2string(j));            
             nodes[i][j].setFeatures(info);             
         }

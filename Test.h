@@ -18,7 +18,8 @@ public:
     Test(const Test& orig);
     virtual ~Test();
     
-    void colorDataSet(); 
+    void colorDataSet();
+    void armInLine();  
 private:
     
     

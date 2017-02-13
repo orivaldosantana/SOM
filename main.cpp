@@ -19,7 +19,8 @@ int main(int argc, char** argv) {
     
     Test test; 
     
-    test.colorDataSet(); 
+    //test.colorDataSet(); 
+    test.armInLine();
     
     return 0;
 }

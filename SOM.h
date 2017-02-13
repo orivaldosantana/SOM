@@ -37,7 +37,7 @@ public:
     void setDataSet(DataSet* dataSet);
     void setSizeNetwork(int sizeNetwork);
     int getSizeNetwork() const;
-    void initializeNodes(int sizeNodes = 2, bool positivesValues = false, double intensity = 20, double maxIntensity = 200); 
+    void initializeNodes(int sizeNodes = 2, bool positivesValues = false, double intensity = 20); 
     
 private:
     

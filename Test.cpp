@@ -23,9 +23,9 @@ void Test::colorDataSet() {
     
     som.setDataSet(data);
 
-    int maxColorIntensity = 255;
-    int maxCollorInitialValue = 20; 
-    som.initializeNodes(3,true, maxCollorInitialValue, maxColorIntensity); 
+    
+    float maxColorInitialValue = 0.02; 
+    som.initializeNodes(3,true, maxColorInitialValue); 
     
     int iterations = 150;
 
@@ -41,6 +41,35 @@ void Test::colorDataSet() {
     std::cout << "Iteractions executed: " << iterations << std::endl;
  
     delete data; 
+}
+
+void Test::armInLine() {
+    std::string fileData = "data/braco_em_linha.txt";
+    SOM som(12);
+    DataSet *data = new DataSet(fileData);
+    data->show();
+    
+    som.setDataSet(data);
+
+ 
+    float maxFeatureInitialValue = 0.01; 
+    som.initializeNodes(4,true, maxFeatureInitialValue); 
+    
+    int iterations = 50;
+
+    
+    // Execute many iterations 
+    int i = 0;
+    som.printNodes();
+    while (i < iterations) {
+        som.executeOneIt();
+        i++;
+        som.printNodes(); 
+    }
+    std::cout << "Iteractions executed: " << iterations << std::endl;
+ 
+    delete data; 
+  
 }
 
 Test::~Test() {
