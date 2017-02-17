@@ -55,16 +55,16 @@ void Test::armInLine() {
     float maxFeatureInitialValue = 0.01; 
     som.initializeNodes(4,true, maxFeatureInitialValue); 
     
-    int iterations = 50;
+    int iterations = 250;
 
     
     // Execute many iterations 
     int i = 0;
-    som.printNodes();
+    som.saveNodes("output/arm_in_line_","x, y, beta, gamma, rx, ry", false);
     while (i < iterations) {
         som.executeOneIt();
         i++;
-        som.printNodes(); 
+        som.saveNodes("output/arm_in_line_","x, y, beta, gamma, rx, ry", false); 
     }
     std::cout << "Iteractions executed: " << iterations << std::endl;
  

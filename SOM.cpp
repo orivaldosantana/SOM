@@ -133,6 +133,30 @@ void SOM::printNodes(bool showTerminal) {
 
 }
 
+void SOM::saveNodes(std::string fileName, std::string fileHeader, bool showTerminal) {
+    
+    std::stringstream ssFileName;
+    
+    ssFileName << fileName << currentIt << ".csv"; 
+    
+    std::string sFileName = ssFileName.str(); 
+    
+    ofstream nodesFile;
+    nodesFile.open (sFileName.c_str());
+  
+    nodesFile << fileHeader << endl; 
+    for (int i = 0; i < sizeNetwork; i++) {
+        for (int j = 0; j < sizeNetwork; j++) {
+            if (showTerminal)  cout << " [" <<  nodes[i][j].toString() << "] ";
+            nodesFile << i<<","<< j<< ",";  
+            nodesFile << nodes[i][j].toCSV() << endl; 
+        }
+        if (showTerminal) cout <<endl; 
+    }
+    nodesFile.close();
+
+}
+
 void SOM::setDataSet(DataSet* dataSet) {
     this->dataSet = dataSet;
 }

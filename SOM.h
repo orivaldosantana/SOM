@@ -32,7 +32,7 @@ public:
     int  updateWeight(Sample *s, int iWin, int jWin);
     void getNodeFeatures(int i, int j, std::vector<double>  &info); 
   
- 
+    void saveNodes(std::string fileName, std::string fileHeader, bool showTerminal);
     void printNodes(bool showTerminal = false);
     void setDataSet(DataSet* dataSet);
     void setSizeNetwork(int sizeNetwork);
