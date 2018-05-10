@@ -41,6 +41,9 @@ void TestArduino::turnLeft(){
         som.printNodes(true); 
     }
     std::cout << "Iteractions executed: " << iterations << std::endl;
+    
+    som.labelingPhase(); 
+    som.showLabels(); 
 }
 
  

@@ -122,9 +122,8 @@ void DataSet::loadDataFromClassesFile(std::string fileName) {
             }
             // Sample s(lineMatrix);
             file >> label; 
-            matrix.push_back(new Sample(lineMatrix));
-            lineMatrix.clear(); 
-            lables.push_back(label);      
+            matrix.push_back(new Sample(lineMatrix, label));
+            lineMatrix.clear();     
         }
     }
     empty = false;

@@ -20,47 +20,55 @@ public:
 
     ~SOM();
  
-    void findWinner(Sample *s, int &i, int &j); 
+    double  compareRange(int x, int y, int iStart, int iEnd,  std::vector<double>  &info); 
+
  
-    void executeOneIt();
-    void execute(); 
  
-    double distancePos(int aX, int aY, int bX, int bY);
-    double distanceVector(std::vector<double>  &infoA, std::vector<double>  &infoB);
-    double compareRange(int x, int y, int iStart, int iEnd,  std::vector<double>  &info); 
-    void enableNodes();
-    int  updateWeight(Sample *s, int iWin, int jWin);
-    void getNodeFeatures(int i, int j, std::vector<double>  &info); 
-  
-    void saveNodes(std::string fileName, std::string fileHeader, bool showTerminal);
-    void printNodes(bool showTerminal = false);
-    void setDataSet(DataSet* dataSet);
-    void setSizeNetwork(int sizeNetwork);
-    int getSizeNetwork() const;
-    void initializeNodes(int sizeNodes = 2, bool positivesValues = false, double intensity = 20); 
+    double  distancePos(int aX, int aY, int bX, int bY);
+    double  distanceVector(std::vector<double>  &infoA, std::vector<double>  &infoB);
+    void    executeOneIt();
+    void    execute(); 
+    void    enableNodes();
+    void    findWinner(Sample *s, int &i, int &j); 
+    void    getNodeFeatures(int i, int j, std::vector<double>  &info); 
+    int     getSizeNetwork() const;
+    
+    void    labelingPhase();
+    void    labelingPhaseWithNeighbor();
+    
+    void    printNodes(bool showTerminal = false);
+    void    saveNodes(std::string fileName, std::string fileHeader, bool showTerminal);
+
+    void    setDataSet(DataSet* dataSet);
+    void    setSizeNetwork(int sizeNetwork);
+    void    showLabels();
+
+    void    initializeNodes(int sizeNodes = 2, bool positivesValues = false, double intensity = 20); 
+    int     updateWeight(Sample *s, int iWin, int jWin);
+    void    updateLabel(std::string l, int iWin, int jWin);
     
 private:
     
-    int validatePos(int pos); 
+    int     validatePos(int pos); 
     // armazena os nodos da rede
-    Node nodes[SOM_MAX_SIZE][SOM_MAX_SIZE];
+    Node    nodes[SOM_MAX_SIZE][SOM_MAX_SIZE];
  
-    int sizeNetwork;
-    int currentIt;
+    int     sizeNetwork;
+    int     currentIt;
     Sample* currentSample; 
-    double learningRate;
-    double minLearningRate;
-    double alpha; ///< Taxa de aprendizagem atual 
-    double sigma; ///< Determinar a largura da função de vizinhaça 
+    double  learningRate;
+    double  minLearningRate;
+    double  alpha; ///< Taxa de aprendizagem atual 
+    double  sigma; ///< Determinar a largura da função de vizinhaça 
     
-    int maxIteration;
+    int     maxIteration;
  
     DataSet *dataSet; 
-    int epoch; 
-    int maxEpoch; 
+    int     epoch; 
+    int     maxEpoch; 
     
 
-    bool debug;
+    bool    debug;
 };
 
 #endif	/* SOM_H */

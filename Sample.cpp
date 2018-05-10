@@ -11,6 +11,7 @@
 #include "utils.h"
 
 Sample::Sample(){
+    label = ""; 
     
 }
 
@@ -22,6 +23,11 @@ Sample::Sample(int s) {
 
 Sample::Sample(std::vector<double>& info){
     information = info; 
+}
+
+Sample::Sample(std::vector<double>& info, std::string l){
+    information = info; 
+    label = l; 
 }
 
 Sample::Sample(const Sample& orig) {
@@ -73,6 +79,7 @@ std::string Sample::toString() {
     for (int i = 0; i < information.size(); i++) {
         result << information.at(i) << " ";
     }
+    result << label; 
     std::string s = result.str(); 
     return s;
 }
@@ -107,6 +114,10 @@ double Sample::getFeature(int index){
 int Sample::getSize() {
     return information.size();
 }
+
+std::string Sample::getClass( ) {
+    return label; 
+} 
 
 void Sample::putNormalNoise(double s){
     for ( std::vector<double>::iterator itI = information.begin(); itI != information.end(); itI++ ) {

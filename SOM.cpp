@@ -21,7 +21,6 @@ SOM::SOM(int _sn) {
     epoch = 0;
     sigma = 1.5; 
     //maxIteration = 100000; 
-    
     //initializeNodes(3); 
 }
 
@@ -80,6 +79,36 @@ int SOM::validatePos(int pos){
     return pos; 
 }
 
+void SOM::updateLabel(std::string l, int iWin, int jWin) {
+    nodes[iWin][jWin].updateLabel(l,10000); 
+} 
+
+void SOM::labelingPhase() {
+    int cont = 0;
+    currentSample = dataSet->getSample(cont);
+ 
+    while ( cont < dataSet->getSize()) {
+        int iWinner, jWinner;
+        findWinner(currentSample,iWinner,jWinner); 
+        updateLabel(currentSample->getClass(), iWinner, jWinner);
+        currentSample = dataSet->getSample(cont);
+        cont++; 
+    }
+}
+
+void SOM::labelingPhaseWithNeighbor() {
+    int cont = 0;
+    currentSample = dataSet->getSample(cont);
+ 
+    while ( cont < dataSet->getSize()) {
+        int iWinner, jWinner;
+        findWinner(currentSample,iWinner,jWinner); 
+        updateLabel(currentSample->getClass(), iWinner, jWinner);
+        currentSample = dataSet->getSample(cont);
+        cont++; 
+    }
+}
+
 int SOM::updateWeight(Sample *s, int iWin, int jWin) {
 
 
@@ -109,6 +138,16 @@ int SOM::updateWeight(Sample *s, int iWin, int jWin) {
 
 }
 
+void SOM::showLabels(){
+    for (int i = 0; i < sizeNetwork; i++) {
+        for (int j = 0; j < sizeNetwork; j++) {
+            cout <<  nodes[i][j].getClass() << " ";
+ 
+        }
+        cout <<endl; 
+    }
+}
+
 void SOM::printNodes(bool showTerminal) {
     
     std::stringstream ssFileName;
@@ -118,7 +157,7 @@ void SOM::printNodes(bool showTerminal) {
     std::string sFileName = ssFileName.str(); 
     
     ofstream nodesFile;
-    nodesFile.open (sFileName.c_str());
+    nodesFile.open(sFileName.c_str());
   
     nodesFile << "x,y,r,g,b" << endl; 
     for (int i = 0; i < sizeNetwork; i++) {
@@ -201,6 +240,7 @@ void SOM::executeOneIt() {
         sigma = (1 - 0.01) * sigma;
     }
     
+    
     std::cout << "Sample: ";
     currentSample->print(); 
     std::cout << endl; 
@@ -251,7 +291,7 @@ void SOM::initializeNodes(int sizeNodes, bool positivesValues, double intensity 
                 info.push_back(a);
             }
             //    cout << " " << a << endl; 
-            nodes[i][j].setLabel(Utils::int2string(i)+"-"+Utils::int2string(j));            
+            nodes[i][j].setDescription(Utils::int2string(i)+"-"+Utils::int2string(j));            
             nodes[i][j].setFeatures(info);             
         }
     }

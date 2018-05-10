@@ -20,6 +20,7 @@ public:
     Sample(); 
     Sample(int s);
     Sample(std::vector<double>  &info); 
+    Sample(std::vector<double>& info, std::string l);
     Sample(const Sample& orig);
     virtual ~Sample();
     
@@ -29,6 +30,7 @@ public:
     Sample              operator/                 (double                   d);
 
     double              distance                  (Sample                &sIn);
+    std::string         getClass                  ( ); 
     int                 getSize                   ( );
     void                getFeatures               (std::vector<double>  &info); 
     void                getFeaturesRange          (int iStart, int iEnd, std::vector<double>  &info); 
@@ -42,6 +44,7 @@ public:
 
 protected:
     std::vector<double>     information;
+    std::string                 label;
  
     
     

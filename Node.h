@@ -48,8 +48,11 @@ public:
 
     void                updateFeatures              (double                  d,
                                                      Sample*                 s);
+    void                updateLabel                 (std::string             l,
+                                                     double                  d); 
 
     void                setEnabled                  (bool enabled) { this->enabled = enabled;  }
+    void                setDescription              (std::string d); 
 
 
     
@@ -58,7 +61,6 @@ public:
 protected:
 
 
-    std::string                 label;
     std::string                 description;
     bool                        enabled; 
     double                      winnerDistance; 

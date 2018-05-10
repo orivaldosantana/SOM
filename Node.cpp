@@ -37,6 +37,10 @@ void Node::setFeaturesFromSample(Sample* s) {
     information = s->information;
 }
 
+void Node::setDescription(std::string d){
+    description = d; 
+}
+
 void Node::setLabel(std::string l){
     label = l; 
 }
@@ -70,6 +74,12 @@ void Node::updateFeatures(double d, Sample* s) {
             and (it != information.end()); it++) {
         *it += d * (*itS - *it);
         itS++;
+    }
+}
+
+void Node::updateLabel(std::string l, double d) {
+    if (winnerDistance < d){
+        label = l; 
     }
 }
 
