@@ -30,7 +30,7 @@ SOM::~SOM() {
 
 // encontrar o vencedor 
 
-void SOM::findWinner(Sample *s, int& iWin, int& jWin){ 
+double SOM::findWinner(Sample *s, int& iWin, int& jWin){ 
     iWin = 0;
     jWin = 0; 
     double bestD = nodes[0][0].distance(*s); 
@@ -80,8 +80,32 @@ int SOM::validatePos(int pos){
 }
 
 void SOM::updateLabel(std::string l, int iWin, int jWin) {
-    nodes[iWin][jWin].updateLabel(l,10000); 
+    nodes[iWin][jWin].updateLabel(l,0); 
 } 
+
+void SOM::updateLabels(Sample *s ) {
+    
+    std::string l = s->getClass(); 
+    for (int i=0; i < sizeNetwork; i++){
+        for (int j=0; j < sizeNetwork; j++ ){
+            if (nodes[i][j].isEnabled()) {
+                double d = nodes[i][j].distance(*s); 
+                nodes[i][j].updateLabel(l,d);
+            }
+        }
+    }
+} 
+
+void SOM::labelingPhaseII() {
+    int cont = 0;
+    currentSample = dataSet->getSample(cont);
+    while ( cont < dataSet->getSize()) {
+        updateLabels(currentSample);
+        currentSample = dataSet->getSample(cont);
+        cont++; 
+    }
+}
+
 
 void SOM::labelingPhase() {
     int cont = 0;

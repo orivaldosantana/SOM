@@ -11,7 +11,7 @@
 #include "utils.h"
 
 Sample::Sample(){
-    label = ""; 
+    label = "*"; 
     
 }
 

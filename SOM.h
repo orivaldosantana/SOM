@@ -29,11 +29,12 @@ public:
     void    executeOneIt();
     void    execute(); 
     void    enableNodes();
-    void    findWinner(Sample *s, int &i, int &j); 
+    double  findWinner(Sample *s, int &i, int &j); 
     void    getNodeFeatures(int i, int j, std::vector<double>  &info); 
     int     getSizeNetwork() const;
     
     void    labelingPhase();
+    void    labelingPhaseII();
     void    labelingPhaseWithNeighbor();
     
     void    printNodes(bool showTerminal = false);
@@ -46,6 +47,7 @@ public:
     void    initializeNodes(int sizeNodes = 2, bool positivesValues = false, double intensity = 20); 
     int     updateWeight(Sample *s, int iWin, int jWin);
     void    updateLabel(std::string l, int iWin, int jWin);
+    void    updateLabels(Sample *s);
     
 private:
     

@@ -12,6 +12,7 @@ Node::Node(){
     label = "";
     description = "";
     enabled = true; 
+    winnerDistance = 10000000;
 }
 
 Node::Node(const Node& orig) {
@@ -22,7 +23,8 @@ Node::Node(const Sample& s, std::string l, std::string d) {
     information = s.information;
     label = l;
     description = d;
-    enabled = true; 
+    enabled = true;
+    winnerDistance = 10000000;
 }
 
 Node::~Node() {
@@ -78,8 +80,9 @@ void Node::updateFeatures(double d, Sample* s) {
 }
 
 void Node::updateLabel(std::string l, double d) {
-    if (winnerDistance < d){
+    if (d <= winnerDistance){
         label = l; 
+        winnerDistance = d; 
     }
 }
 
