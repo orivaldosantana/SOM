@@ -8,6 +8,7 @@
 #include <cstdlib>
 #include <iostream>
 #include "Test.h"
+#include "TestArduino.h"
 
 using namespace std;
 
@@ -17,10 +18,13 @@ using namespace std;
 int main(int argc, char** argv) {
     cout << " Testando rede SOM!" << endl;
     
-    Test test; 
+    //Test test; 
     
     //test.colorDataSet(); 
-    test.armInLine();
+    //test.armInLine();
+    
+    TestArduino test; 
+    test.turnLeft(); 
     
     return 0;
 }

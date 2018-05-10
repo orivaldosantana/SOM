@@ -102,6 +102,39 @@ void DataSet::loadDataFromFile(std::string fileName) {
     generateRandomIndex(); 
 }
 
+void DataSet::loadDataFromClassesFile(std::string fileName) {
+    matrix.clear(); 
+    std::ifstream file;
+    std::string label; 
+    std::vector<double> lineMatrix;
+    file.open(fileName.c_str());
+    if (!file.good()) {
+        std::cout << " File, " << fileName << ", not found! " << std::endl;
+        return;
+    }
+    float columns, lines, data;
+    file >> lines >> columns;
+    for (int i = 0; i < lines; i++) {
+        if (file.good()) {
+            for (int j = 0; j < columns-1; j++) {
+                file >> data;
+                lineMatrix.push_back(data);
+            }
+            // Sample s(lineMatrix);
+            file >> label; 
+            matrix.push_back(new Sample(lineMatrix));
+            lineMatrix.clear(); 
+            lables.push_back(label);      
+        }
+    }
+    empty = false;
+    sampleSize = columns;
+    //matrix.pop_back();
+    dataSetSize = matrix.size();
+    //originalDatabaseSize = matrix.size();
+    generateRandomIndex(); 
+}
+
 void DataSet::normalizeData() {
     std::vector<double> lineMatrix;
     double positiveInfinityValue = std::numeric_limits<double>::max();

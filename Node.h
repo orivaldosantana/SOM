@@ -61,6 +61,7 @@ protected:
     std::string                 label;
     std::string                 description;
     bool                        enabled; 
+    double                      winnerDistance; 
 
 };
 

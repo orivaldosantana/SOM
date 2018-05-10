@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configurationDescriptor version="95">
+<configurationDescriptor version="100">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <logicalFolder name="HeaderFiles"
                    displayName="Arquivos de Cabeçalho"
@@ -9,6 +9,7 @@
       <itemPath>SOM.h</itemPath>
       <itemPath>Sample.h</itemPath>
       <itemPath>Test.h</itemPath>
+      <itemPath>TestArduino.h</itemPath>
       <itemPath>utils.h</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
@@ -19,6 +20,7 @@
       <itemPath>SOM.cpp</itemPath>
       <itemPath>Sample.cpp</itemPath>
       <itemPath>Test.cpp</itemPath>
+      <itemPath>TestArduino.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -70,6 +72,10 @@
       </item>
       <item path="Test.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="TestArduino.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="TestArduino.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="utils.h" ex="false" tool="3" flavor2="0">
@@ -114,6 +120,10 @@
       <item path="Test.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Test.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="TestArduino.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="TestArduino.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>

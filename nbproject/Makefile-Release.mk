@@ -21,7 +21,7 @@ FC=gfortran
 AS=as
 
 # Macros
-CND_PLATFORM=GNU-Linux-x86
+CND_PLATFORM=GNU-Linux
 CND_DLIB_EXT=so
 CND_CONF=Release
 CND_DISTDIR=dist
@@ -40,6 +40,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/SOM.o \
 	${OBJECTDIR}/Sample.o \
 	${OBJECTDIR}/Test.o \
+	${OBJECTDIR}/TestArduino.o \
 	${OBJECTDIR}/main.o
 
 
@@ -67,32 +68,37 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/som: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/som ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/DataSet.o: DataSet.cpp 
+${OBJECTDIR}/DataSet.o: DataSet.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DataSet.o DataSet.cpp
 
-${OBJECTDIR}/Node.o: Node.cpp 
+${OBJECTDIR}/Node.o: Node.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Node.o Node.cpp
 
-${OBJECTDIR}/SOM.o: SOM.cpp 
+${OBJECTDIR}/SOM.o: SOM.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SOM.o SOM.cpp
 
-${OBJECTDIR}/Sample.o: Sample.cpp 
+${OBJECTDIR}/Sample.o: Sample.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Sample.o Sample.cpp
 
-${OBJECTDIR}/Test.o: Test.cpp 
+${OBJECTDIR}/Test.o: Test.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Test.o Test.cpp
 
-${OBJECTDIR}/main.o: main.cpp 
+${OBJECTDIR}/TestArduino.o: TestArduino.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestArduino.o TestArduino.cpp
+
+${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
@@ -103,7 +109,6 @@ ${OBJECTDIR}/main.o: main.cpp
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/som
 
 # Subprojects
 .clean-subprojects:

@@ -113,7 +113,7 @@ void SOM::printNodes(bool showTerminal) {
     
     std::stringstream ssFileName;
     
-    ssFileName << "output/color_" << currentIt << ".csv"; 
+    ssFileName << "output/ura_" << currentIt << ".csv"; 
     
     std::string sFileName = ssFileName.str(); 
     

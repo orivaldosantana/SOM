@@ -30,6 +30,7 @@ public:
     int             getSize                     ( ); 
     bool            isEmpty                     ( );
     void            loadDataFromFile            (std::string fileName);
+    void            loadDataFromClassesFile     (std::string fileName);
     void            normalizeData               ( );
     void            putNoise                    (float                 sigma, 
                                                  unsigned int    repetitions);
@@ -48,6 +49,7 @@ public:
 private:
     int dataSetSize; 
     std::string fileName;
+    std::vector<std::string> lables;  
     bool empty;
     std::vector<Sample*> matrix;
     std::vector<unsigned int> index;
