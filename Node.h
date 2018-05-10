@@ -33,6 +33,7 @@ public:
     bool                isEnabled                   ( ) const { return enabled; }    
 
     std::string         getLabel                    ( ); 
+    double              getWinnerDistance           ( ) { return winnerDistance; }
 
 
 

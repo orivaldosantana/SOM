@@ -44,8 +44,10 @@ void TestArduino::turnLeft(){
     
     som.labelingPhase(); 
     som.showLabels(); 
+    som.showWinnerDistances();
     som.labelingPhaseII();
     som.showLabels(); 
+    som.showWinnerDistances();
 }
 
  

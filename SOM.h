@@ -43,6 +43,7 @@ public:
     void    setDataSet(DataSet* dataSet);
     void    setSizeNetwork(int sizeNetwork);
     void    showLabels();
+    void    showWinnerDistances(); 
 
     void    initializeNodes(int sizeNodes = 2, bool positivesValues = false, double intensity = 20); 
     int     updateWeight(Sample *s, int iWin, int jWin);

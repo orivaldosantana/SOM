@@ -88,10 +88,10 @@ void SOM::updateLabels(Sample *s ) {
     std::string l = s->getClass(); 
     for (int i=0; i < sizeNetwork; i++){
         for (int j=0; j < sizeNetwork; j++ ){
-            if (nodes[i][j].isEnabled()) {
+
                 double d = nodes[i][j].distance(*s); 
                 nodes[i][j].updateLabel(l,d);
-            }
+
         }
     }
 } 
@@ -166,6 +166,16 @@ void SOM::showLabels(){
     for (int i = 0; i < sizeNetwork; i++) {
         for (int j = 0; j < sizeNetwork; j++) {
             cout <<  nodes[i][j].getClass() << " ";
+ 
+        }
+        cout <<endl; 
+    }
+}
+
+void SOM::showWinnerDistances(){
+    for (int i = 0; i < sizeNetwork; i++) {
+        for (int j = 0; j < sizeNetwork; j++) {
+            cout <<  nodes[i][j].getWinnerDistance() << " ";
  
         }
         cout <<endl; 
