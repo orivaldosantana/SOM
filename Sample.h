@@ -40,7 +40,8 @@ public:
     void                print                     ( );
  
     void                setFeatures               (std::vector<double>  &info);
-    std::string         toString                  ( );        
+    std::string         toString                  ( );     
+    std::string         toShortString             ( ); 
 
 protected:
     std::vector<double>     information;

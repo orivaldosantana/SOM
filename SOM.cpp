@@ -230,6 +230,50 @@ void SOM::saveNodes(std::string fileName, std::string fileHeader, bool showTermi
 
 }
 
+void SOM::saveToTxtFile(std::string fileName, bool showTerminal){
+        std::stringstream ssFileName;
+    
+    ssFileName << fileName << currentIt << ".txt"; 
+    
+    std::string sFileName = ssFileName.str(); 
+    
+    ofstream nodesFile;
+    nodesFile.open (sFileName.c_str());
+  
+    if (sizeNetwork > 0) 
+    nodesFile << sizeNetwork*sizeNetwork << " " << nodes[0][0].getSize() << endl;  
+    for (int i = 0; i < sizeNetwork; i++) {
+        for (int j = 0; j < sizeNetwork; j++) {
+            if (showTerminal)  cout << " [" <<  nodes[i][j].toString() << "] "; 
+            nodesFile << nodes[i][j].toShortString() << endl; 
+        }
+        if (showTerminal) cout <<endl; 
+    }
+    nodesFile.close();
+}
+
+void SOM::printMitrixFormat(){
+    std::stringstream ssFileName;
+    
+ 
+    
+    std::string sFileName = ssFileName.str(); 
+    
+    ofstream nodesFile;
+    nodesFile.open (sFileName.c_str());
+  
+    if (sizeNetwork > 0) 
+    nodesFile << sizeNetwork*sizeNetwork << " " << nodes[0][0].getSize() << endl;  
+    for (int i = 0; i < sizeNetwork; i++) {
+        for (int j = 0; j < sizeNetwork; j++) {
+            cout << " [" <<  nodes[i][j].toString() << "] "; 
+            
+        }
+        cout <<endl; 
+    }
+     
+}
+
 void SOM::setDataSet(DataSet* dataSet) {
     this->dataSet = dataSet;
 }

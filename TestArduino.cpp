@@ -26,10 +26,10 @@ void TestArduino::turnLeft(){
     som.setDataSet(data);
 
     
-    float maxColorInitialValue = 0.02; 
+    float maxColorInitialValue = 0.01; 
     som.initializeNodes(3,true, maxColorInitialValue); 
     
-    int iterations = 600;
+    int iterations = 250;
 
     
     // Execute many iterations 
@@ -48,6 +48,8 @@ void TestArduino::turnLeft(){
     som.labelingPhaseII();
     som.showLabels(); 
     som.showWinnerDistances();
+    
+    som.saveToTxtFile("/tmp/som_a"); 
 }
 
  

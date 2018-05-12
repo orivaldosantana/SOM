@@ -84,6 +84,16 @@ std::string Sample::toString() {
     return s;
 }
 
+
+std::string Sample::toShortString() {
+    std::stringstream result;
+    for (int i = 0; i < information.size(); i++) {
+        result << information.at(i) << " ";
+    }
+    std::string s = result.str(); 
+    return s;
+}
+
 void Sample::print(){
     std::cout << " [" << toString() << "] "; 
 }

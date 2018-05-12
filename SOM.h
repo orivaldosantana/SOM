@@ -37,8 +37,10 @@ public:
     void    labelingPhaseII();
     void    labelingPhaseWithNeighbor();
     
+    void    printMitrixFormat();
     void    printNodes(bool showTerminal = false);
     void    saveNodes(std::string fileName, std::string fileHeader, bool showTerminal);
+    void    saveToTxtFile(std::string fileName, bool showTerminal = true);
 
     void    setDataSet(DataSet* dataSet);
     void    setSizeNetwork(int sizeNetwork);
