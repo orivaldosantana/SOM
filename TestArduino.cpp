@@ -35,10 +35,13 @@ void TestArduino::turnLeft(){
     // Execute many iterations 
     int i = 0;
     som.printNodes();
+    som.printNodes(true);
     while (i < iterations) {
+        som.printMitrixFormat();
         som.executeOneIt();
         i++;
-        som.printNodes(true); 
+        //som.printNodes(true);
+       
     }
     std::cout << "Iteractions executed: " << iterations << std::endl;
     
@@ -49,7 +52,9 @@ void TestArduino::turnLeft(){
     som.showLabels(); 
     som.showWinnerDistances();
     
-    som.saveToTxtFile("/tmp/som_a"); 
+    //som.saveToTxtFile("/tmp/som_a");
+    som.printMitrixFormat();
+    som.printLabelsMitrixFormat(); 
 }
 
  

@@ -255,22 +255,62 @@ void SOM::saveToTxtFile(std::string fileName, bool showTerminal){
 void SOM::printMitrixFormat(){
     std::stringstream ssFileName;
     
- 
-    
     std::string sFileName = ssFileName.str(); 
     
     ofstream nodesFile;
     nodesFile.open (sFileName.c_str());
   
     if (sizeNetwork > 0) 
-    nodesFile << sizeNetwork*sizeNetwork << " " << nodes[0][0].getSize() << endl;  
+        nodesFile << sizeNetwork*sizeNetwork << " " << nodes[0][0].getSize() << endl; 
+    cout << "{" << endl; 
     for (int i = 0; i < sizeNetwork; i++) {
-        for (int j = 0; j < sizeNetwork; j++) {
-            cout << " [" <<  nodes[i][j].toString() << "] "; 
-            
+        cout << " {"; 
+        int j = 0;
+        for (  j = 0; j < sizeNetwork; j++) {
+            cout << " {"; 
+            int k;
+            for ( k = 0; k < nodes[i][j].getSize(); k++ ) {
+                cout << int( nodes[i][j].getFeature(k));
+                if (k != nodes[i][j].getSize()-1)
+                    cout << ", ";
+                else
+                    cout << "}";
+            }
+            if (j != sizeNetwork-1 ) 
+                cout << ", ";
+            else {
+                if ( i !=  sizeNetwork-1 )
+                    cout << " }," <<endl;
+                else
+                    cout << " }" <<endl;
+            }
         }
-        cout <<endl; 
+
     }
+    cout << "}; " << endl;
+     
+}
+
+void SOM::printLabelsMitrixFormat(){
+ 
+    cout << "{" << endl; 
+    for (int i = 0; i < sizeNetwork; i++) {
+        cout << " {"; 
+        int j = 0;
+        for (  j = 0; j < sizeNetwork; j++) {
+            cout <<"\'" << nodes[i][j].getLabel() <<"'";
+            if (j != sizeNetwork-1 ) 
+                cout << ", ";
+            else {
+                if ( i !=  sizeNetwork-1 )
+                    cout << "}," <<endl;
+                else
+                    cout << "}" <<endl;
+            }
+        }
+
+    }
+    cout << "}; " << endl;
      
 }
 

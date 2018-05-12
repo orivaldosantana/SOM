@@ -38,6 +38,7 @@ public:
     void    labelingPhaseWithNeighbor();
     
     void    printMitrixFormat();
+    void    printLabelsMitrixFormat(); 
     void    printNodes(bool showTerminal = false);
     void    saveNodes(std::string fileName, std::string fileHeader, bool showTerminal);
     void    saveToTxtFile(std::string fileName, bool showTerminal = true);

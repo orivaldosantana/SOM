@@ -13,12 +13,12 @@ void setup() {
   playState = false; 
   contFrames = 0; 
   iterationView = 0; 
-  size(430, 520);
-  frameRate(15); 
-  int somFrameSize = 400;
-  int iniYSomFrame = 40; 
-  int iniXSomFrame = 40; 
-  som = new SomVisualizer( iniXSomFrame, iniYSomFrame , somFrameSize); 
+  size(880, 1000);
+  frameRate(30); 
+  int somFrameSize = 800;
+  int iniYSomFrame = 80; 
+  int iniXSomFrame = 80; 
+  som = new SomVisualizer( iniXSomFrame, iniYSomFrame , somFrameSize,3); 
   button = new Button("Play",iniXSomFrame - 25, somFrameSize + iniYSomFrame, somFrameSize, 50);  
 }
 

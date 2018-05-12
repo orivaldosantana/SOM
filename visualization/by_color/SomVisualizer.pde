@@ -13,10 +13,12 @@ class SomVisualizer {
   String dataPath; 
   String fileDataName; 
   int rowNumber;
+  int dataScale; 
   
-  SomVisualizer(int iXNode, int iYNode, int fSize) {
+  SomVisualizer(int iXNode, int iYNode, int fSize, int dScale) {
+    dataScale = dScale; 
     dataPath = "../../output/";
-    fileDataName = "color"; 
+    fileDataName = "ura"; 
     rowNumber = 0;
     if ( loadData(0) ) {
       rowNumber = table.getRowCount();
@@ -50,9 +52,9 @@ class SomVisualizer {
           // You can access the fields via their column name (or index)
           i = row.getInt("x"); 
           j = row.getInt("y"); 
-          r = int(row.getFloat("r")*255);
-          g = int(row.getFloat("g")*255);
-          b = int(row.getFloat("b")*255);      
+          r = int(row.getFloat("r")*dataScale);
+          g = int(row.getFloat("g")*dataScale);
+          b = int(row.getFloat("b")*dataScale);      
           xNode = initialXNode + i*(nodeSize + nodeSpacing); 
           yNode = initialYNode + j*(nodeSize + nodeSpacing);
           fill(r, g, b);
