@@ -19,6 +19,7 @@ public:
     virtual ~TestArduino();
     
     void turnLeft();
+    void allDirections(); 
  
 private:
     

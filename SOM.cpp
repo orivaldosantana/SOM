@@ -33,6 +33,7 @@ SOM::~SOM() {
 double SOM::findWinner(Sample *s, int& iWin, int& jWin){ 
     iWin = 0;
     jWin = 0; 
+    bool winnerFound = false; 
     double bestD = nodes[0][0].distance(*s); 
     for (int i=0; i < sizeNetwork; i++){
         for (int j=0; j < sizeNetwork; j++ ){
@@ -42,9 +43,13 @@ double SOM::findWinner(Sample *s, int& iWin, int& jWin){
                     bestD = d;
                     iWin = i;
                     jWin = j;
+                    winnerFound = true; 
                 }
             }
         }
+    }
+    if ( ! winnerFound ) {
+        enableNodes();
     }
  
 }

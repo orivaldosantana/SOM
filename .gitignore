@@ -1,5 +1,6 @@
 /build/
 /dist/
+/output/
 nbproject/private/
 .dep.inc
 

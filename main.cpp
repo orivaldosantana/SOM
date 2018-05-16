@@ -24,7 +24,8 @@ int main(int argc, char** argv) {
     //test.armInLine();
     
     TestArduino test; 
-    test.turnLeft(); 
+    //test.turnLeft();
+    test.allDirections(); 
     
     return 0;
 }

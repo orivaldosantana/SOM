@@ -15,6 +15,46 @@ TestArduino::TestArduino() {
 TestArduino::TestArduino(const TestArduino& orig) {
 }
 
+void TestArduino::allDirections(){
+    std::string fileData = "data/ura3_arduino.txt";
+    
+    SOM som(6);
+    DataSet *data = new DataSet();
+    data->loadDataFromClassesFile(fileData); 
+    data->show();
+    
+    som.setDataSet(data);
+    
+    float maxColorInitialValue = 0.01; 
+    som.initializeNodes(3,true, maxColorInitialValue); 
+    
+    int iterations = 550;
+    
+    // Execute many iterations 
+    int i = 0;
+    som.printNodes();
+    som.printNodes(true);
+    while (i < iterations) {
+        som.printMitrixFormat();
+        som.executeOneIt();
+        i++;
+        //som.printNodes(true);
+       
+    }
+    std::cout << "Iteractions executed: " << iterations << std::endl;
+    
+    som.labelingPhase(); 
+    som.showLabels(); 
+    som.showWinnerDistances();
+    som.labelingPhaseII();
+    som.showLabels(); 
+    som.showWinnerDistances();
+    
+    //som.saveToTxtFile("/tmp/som_a");
+    som.printMitrixFormat();
+    som.printLabelsMitrixFormat(); 
+}
+
 void TestArduino::turnLeft(){
     std::string fileData = "data/ura_arduino.txt";
     
