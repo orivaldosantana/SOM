@@ -3,4 +3,7 @@
 /output/
 nbproject/private/
 .dep.inc
-
+/som_imagem/build/
+/som_imagem/dist/
+/som_imagem/.dep.inc
+/som_imagem/nbproject/private/

@@ -16,7 +16,7 @@ TestArduino::TestArduino(const TestArduino& orig) {
 }
 
 void TestArduino::allDirections(){
-    std::string fileData = "data/ura3_arduino.txt";
+    std::string fileData = "data/ura4_arduino.txt";
     
     SOM som(6);
     DataSet *data = new DataSet();
