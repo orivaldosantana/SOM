@@ -54,6 +54,22 @@ int TestOpenCV::openWebcam() {
 }
 
 void TestOpenCV::loadImageToMatrix(){
+    Mat image; 
+    std::string imageName = "../data/imagens/direcao/direitaTrain1.jpg"; 
+    try {
+        image = cv::imread(imageName, 0);
+    } catch(Exception& e) {
+        std::cout << e.what() << std::endl;
+        return;
+    }
+    while(1) {
+        imshow("Live", image);
+            if (waitKey(5) >= 0)
+                break;
+    }
+
+    imwrite("/tmp/teste.png",image);
+    
 
 }
 
