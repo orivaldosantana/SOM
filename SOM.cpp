@@ -58,7 +58,7 @@ double SOM::distancePos(int aX, int aY, int bX, int bY){
     return sqrt( pow(aX - bX,2) + pow(aY - bY,2) ); 
 }
 
-//TODO esta função pode ser otimizada: o passo de pegar e compara em um laço apenas  
+//TODO esta função pode ser otimizada: o passo de pegar e comparar em um laço apenas  
 double SOM::compareRange(int x, int y, int iStart, int iEnd, std::vector<double>& info){
     std::vector<double> infoN; 
     nodes[x][y].getFeaturesRange(iStart,iEnd,infoN); 
