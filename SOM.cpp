@@ -348,7 +348,7 @@ void SOM::execute(){
 
 void SOM::executeOneIt() {
     
-    // escolhe aleatoriamente um padrão de entrda para a rede 
+    // escolhe aleatoriamente um padrão de entrada para a rede 
     bool firstSample = dataSet->getRandomSample(currentSample);
     if (firstSample) {
         epoch++; 
