@@ -1,0 +1,9 @@
+{
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/home/orivaldo/repositorio/SOM/dist/Debug/GNU-Linux",
+            "binaryPath": "/home/orivaldo/repositorio/SOM/dist/Debug/GNU-Linux/som",
+            "binaryArgs": []
+        }
+    ]
+}
