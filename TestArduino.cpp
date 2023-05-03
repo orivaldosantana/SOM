@@ -28,7 +28,7 @@ void TestArduino::allDirections(){
     float maxColorInitialValue = 0.01; 
     som.initializeNodes(3,true, maxColorInitialValue); 
     
-    int iterations = 550;
+    int iterations = 150;
     
     // Execute many iterations 
     int i = 0;
